@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2023 Gabriel Bustillo del Cuvillo
 
 
 #include "Subtitles.h"
@@ -23,10 +23,10 @@ ASubtitles::ASubtitles()
 void ASubtitles::BeginPlay()
 {
 	Super::BeginPlay();
-	auto a=Cast<USubtitlesFrontend>(SubtitlesFrontend->GetWidget());
-	if(a)
+	auto FrontEndWidget=Cast<USubtitlesFrontend>(SubtitlesFrontend->GetWidget());
+	if(FrontEndWidget)
 	{
-		a->GetDelegate()->AddUFunction(this,TEXT("PassSubtitles"));
+		FrontEndWidget->GetDelegate()->AddUFunction(this,TEXT("PassSubtitles"));
 	}
 }
 
